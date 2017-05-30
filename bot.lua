@@ -39,7 +39,7 @@ function bot_init(on_reload) -- The function run when the bot is started or relo
 		table.insert(plugins, p)
 	end
 
-	print('\n'..clr.blue..'Pigeon-bot started!')
+	print('\n'..clr.red..'Pigeon-bot started!')
 	
 	last_update = last_update or -2 --skip pending updates
 	last_cron = last_cron or os.time() -- the time of the last cron job
@@ -107,7 +107,7 @@ local function match_triggers(triggers, text)
 end
 
 local function on_msg_receive(msg, callback) -- The fn run whenever a message is received.
-	--u.dump('PARSED', msg)
+	u.dump('PARSED', msg)
 	if not msg then
 		return
 	end
