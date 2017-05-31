@@ -321,6 +321,12 @@ function api.editMessageText(chat_id, message_id, text, parse_mode, keyboard)
 
 end
 
+function api.sendAdminMsg(chat_id, amessage_id)
+    local url = BASE_URL .. '/sendMessage?chat_id=' .. chat_id ..
+	'&amessage_id='..amessage_id..
+	return sendAdminMsg(amessage_id)
+end
+
 function api.editMarkup(chat_id, message_id, reply_markup)
 	
 	local url = BASE_URL .. '/editMessageReplyMarkup?chat_id=' .. chat_id ..

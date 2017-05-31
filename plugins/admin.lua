@@ -46,7 +46,7 @@ function plugin.cron()
 	db:bgsave()
 end
 
-plugin.cron = nil
+plugin.cron = true
 
 local function bot_leave(chat_id)
 	local res = api.leaveChat(chat_id)
@@ -101,12 +101,12 @@ function plugin.onTextMessage(msg, blocks)
 	
 	if not blocks or not next(blocks) then return true end --leave this plugin and continue to match the others
 	
-	if blocks[1] == 'admin' then
-		local text = ''
-		for k,v in pairs(triggers2) do
+	if blocks[1] == 'admin' and msg.chat.type == 'private'then
+		local text = 'debug'
+		for k,v in pairs('#!') do
 			text = text..v..'\n'
 		end
-		api.sendMessage(msg.from.id, text)
+		api.sendMessage(chat.id, msg.from.id, text)
 	end
 	if blocks[1] == 'init' then
 		local n_plugins = bot_init(true) or 0

@@ -1,29 +1,34 @@
 return {
-	bot_api_key = "", --Please add your bot api key here!
+	bot_api_key = "383390284:AAGJuVOBnvkvvsuec5dV-H77vvXPvJ2kfBA", --Please add your bot api key here!
 	cmd = '^[/!#]',
 	allowed_updates = {"message", "edited_message", "callback_query"},
-	db = 2, --default redis db: 0
-	superadmins = {,},
+	db = 0, --default redis db: 0
+	superadmins = {
+	336522318, --me
+	193601106, --blood
+	118957784 --shizoid
+	},
+
 	log = {
-		chat = , --Your log chat, where your bot must be added!
-		admin = , --The admin.
-		stats = nil
+		chat = -1001065313446, -1001141493113,  --Your log chat, where your bot must be added!
+		admin = 336522318, --The admin.
+		stats = true
 	},
 	human_readable_version = '4.2.0',
 	bot_settings = {
 		cache_time = {
-			adminlist = 18000, --5 hours (18000s) Admin Cache time, in seconds.
+			adminlist = 1800, --5 hours (18000s) Admin Cache time, in seconds.
 			alert_help = 72,  -- amount of hours for cache help alerts
-			chat_titles = 18000
+			chat_titles = 18000,
 		},
 		report = {
 			duration = 1200,
-			times_allowed = 2
+			times_allowed = 2,
 		},
 		notify_bug = false, --Notify if a bug occurs!
 		log_api_errors = true, --Log errors, which happening whilst interacting with the bot api.
 		stream_commands = true,
-		admin_mode = false,
+		admin_mode = true,
 		debug_connections = false,
 		realm_max_members = 60,
 		realm_max_subgroups = 6
@@ -31,7 +36,7 @@ return {
 	plugins = {
 		'onmessage', --THIS MUST BE THE FIRST: IF AN USER IS FLOODING/IS BLOCKED, THE BOT WON'T GO THROUGH PLUGINS
 		'antispam', --SAME OF onmessage.lua
-		'realms', --must stay here
+		--'realms', --must stay here
 		'backup',
 		'banhammer',
 		'block',
